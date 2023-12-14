@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProductsList.ProductList_Platforms.Windows"
+             x:Class="ProductsList.ProductList_Platforms.Windows.ProductList_Window"
+             Title="ProductList_Window">
+
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="{StaticResource OldLace}">
+
+        <Border Margin="-2,-2,1100,-2"
+            Style="{StaticResource BorderMenuStyle}">
+
+            <StackLayout x:Name="MainMenu"  
+                         HorizontalOptions="Center">
+
+                <Image Margin="5,10,0,0" 
+                       Source="product_list.png"/>
+
+                <Border Margin="5,20,5,0"
+                        Style="{StaticResource MenuSliderBorderStyle}">
+
+                    <HorizontalStackLayout x:Name="SortMenuSlider"
+                                           BindingContext="{Binding MenuSlider}"
+                                           VerticalOptions="Center">
+                        
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                      PointerExited="OnBorderMouseExit"/>
+
+                            <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                            
+                        </HorizontalStackLayout.GestureRecognizers>
+
+                        <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                        <Label Margin="10,3,0,0" 
+                               Text="Cортування"
+                               Style="{StaticResource LableStyle}"/>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
+                <StackLayout x:Name="SortMenu" 
+                             Margin="5,5,5,0"
+                             Style="{StaticResource MenuStackLayloutStyle}">
+                    
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}" 
+                                               VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                          PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="SortListByAmount"/>
+
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text="за сумою"
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}"
+                                               VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                          PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="SortListByAmount"/>
+
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text="за датою"
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}"
+                                               VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                          PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="SortListByAmount"/>
+
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text="за типом"
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}"
+                           VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                      PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="SortListByAmount"/>
+
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text="за валютою"
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                </StackLayout>
+
+                <Border Margin="5,5,5,0"
+                        Style="{StaticResource MenuSliderBorderStyle}">
+
+                    <HorizontalStackLayout x:Name="StatisticMenuSlider"
+                                           BindingContext="{Binding MenuSlider}"
+                                           VerticalOptions="Center">
+
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                      PointerExited="OnBorderMouseExit"/>
+
+                            <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+
+                        </HorizontalStackLayout.GestureRecognizers>
+
+                        <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                        <Label Margin="10,3,0,0" 
+                               Text="Статистика"
+                               Style="{StaticResource LableStyle}"/>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
+                <StackLayout x:Name="StatisticMenu" 
+                             Margin="5,5,5,0"
+                             Style="{StaticResource MenuStackLayloutStyle}">
+
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}"
+                                               VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                          PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="StatisticsOnparticularDay"/>
+
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text="загальна статистика"
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}"
+                                               VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                          PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="Output5DatesWithTheHighestPrice"/>
+
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text="5 дат з найбільшою сумою"
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}"
+                                               VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                          PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="StatisticsOfFoodProductsUnder50UAH"/>
+                                
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text='"харчування" до 50 грн'
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}"
+                                               VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                          PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="OutputTypesOfSixSmallestPurchases"/>
+                                
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text="тип найдрібніших покупок"
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                    <Border Margin="15,0,0,0" 
+                            HeightRequest="40" 
+                            Style="{StaticResource MenuItemBorderStyle}">
+
+                        <HorizontalStackLayout BindingContext="{Binding MenuItem}"
+                                               VerticalOptions="Center">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                                                          PointerExited="OnBorderMouseExit"/>
+
+                                <TapGestureRecognizer Tapped="SliderOrMenuItem_Click"/>
+                                <TapGestureRecognizer Tapped="OutputPurchasesOnCurrencyChangeDays"/>
+
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <Border Style="{StaticResource BorderForFocusStyle}"/>
+
+                            <Label Margin="15,3,0,0" 
+                                   Text="покупки у дні зміни курсу"
+                                   FontSize="18"
+                                   Style="{StaticResource LableStyle}"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                </StackLayout>
+
+            </StackLayout>
+
+        </Border>
+
+        <Image Margin="10,470,1110,-40" 
+               Source="programer_photo.png"/>
+
+        <Border Margin="735,625,435,10"
+                HeightRequest="60"
+                Style="{StaticResource AddProductBorderStyle}">
+
+            <HorizontalStackLayout x:Name="AddProduct">
+
+                <HorizontalStackLayout.GestureRecognizers>
+                    <PointerGestureRecognizer PointerEntered="OnBorderMouseEntered"
+                              PointerExited="OnBorderMouseExit"/>
+
+                    <TapGestureRecognizer Tapped="AddProductBorderButton_Click"/>
+
+                </HorizontalStackLayout.GestureRecognizers>
+                
+                <Image Margin="0,0,0,0" Source="add.png"/>
+
+                <Label Margin="5,0,0,0" 
+                       Text="додати покупку"
+                       FontSize="25"
+                       Style="{StaticResource LableStyle}"/>
+                
+            </HorizontalStackLayout>
+
+        </Border>
+
+        <Border Margin="350,30,30,100"
+                Style="{StaticResource BorderTableStyle}">
+
+            <ScrollView Orientation="Horizontal">
+                <StackLayout x:Name="TableProductList">
+                    
+                    <Image x:Name="StartedTablePhoto" Source="started_table_photo.png"/>
+                    
+                </StackLayout>
+            </ScrollView>
+
+        </Border>
+
+        <Border Margin="350,30,30,640" 
+                Style="{StaticResource BorderTabelHeaderStyle}">
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="175"/>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="175"/>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="175"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="№" 
+                       Style="{StaticResource LableTableHeaderItemStyle}" 
+                       Grid.Column="0"/>
+                
+                <Label Text="Дата"
+                       Style="{StaticResource LableTableHeaderItemStyle}" 
+                       Grid.Column="1"/>
+                
+                <Label Text="Час" 
+                       Style="{StaticResource LableTableHeaderItemStyle}" 
+                       Grid.Column="2"/>
+                
+                <Label Text="Тип" 
+                       Style="{StaticResource LableTableHeaderItemStyle}" 
+                       Grid.Column="3"/>
+                
+                <Label Text="Ціна"
+                       Style="{StaticResource LableTableHeaderItemStyle}"
+                       Grid.Column="4"/>
+                
+                <Label Text="Валюта" 
+                       Style="{StaticResource LableTableHeaderItemStyle}" 
+                       Grid.Column="5"/>
+                
+                <Label Text="Курс" 
+                       Style="{StaticResource LableTableHeaderItemStyle}" 
+                       Grid.Column="6"/>
+            </Grid>
+            
+        </Border>
+
+    </Grid>
+    
+</ContentPage>

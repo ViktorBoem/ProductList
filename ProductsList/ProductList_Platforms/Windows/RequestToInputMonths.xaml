@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopup:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mopup="clr-namespace:Mopups.Pages;assembly=Mopups"
+             xmlns:mopupanim="clr-namespace:Mopups.Animations;assembly=Mopups"
+             x:Class="ProductsList.ProductList_Platforms.Windows.RequestToInputMonths"
+             Title="RequestToInputMonths">
+
+    <Border HeightRequest="150" WidthRequest="350" Style="{StaticResource BorderPopupStyle}">
+        <StackLayout>
+            <Frame Margin="0,10,0,0"
+                   WidthRequest="300">
+
+                <Entry x:Name="EnteredMonth"
+                   FontSize="16"
+                   MaxLength="10"
+                   Placeholder="Введіть місяць (в форматі: мм.рррр)"
+                   Style="{StaticResource EntryStyle}"/>
+
+            </Frame>
+
+            <Grid Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Clicked="RequestToInputDate_close" 
+                        Grid.Column="0" 
+                        Text="скасувати">
+                    
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonMouseEnter"
+                                                  PointerExited="OnButtonMouseLeave"/>
+                    </Button.GestureRecognizers>
+
+                </Button>
+
+                <Button x:Name="AddProductButton"
+                        Clicked="PurchaseStatistics"
+                        Grid.Column="1" 
+                        Text="підтвердити">
+
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonMouseEnter"
+                                                  PointerExited="OnButtonMouseLeave"/>
+                    </Button.GestureRecognizers>
+
+                </Button>
+            </Grid>
+
+        </StackLayout>
+    </Border>
+    
+</mopup:PopupPage>

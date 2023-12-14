@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopup:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mopup="clr-namespace:Mopups.Pages;assembly=Mopups"
+             xmlns:mopupanim="clr-namespace:Mopups.Animations;assembly=Mopups"
+             x:Class="ProductsList.ProductList_Platforms.Windows.RequestToDeleatItem"
+             Title="RequestToDeleatItem">
+    
+    <Border HeightRequest="180" WidthRequest="350" Style="{StaticResource BorderPopupStyle}">
+        <StackLayout>
+            <Label Text="бажаєте видалити цей елемент?" 
+                   Style="{StaticResource TibleItemStyle}">
+
+            </Label>
+
+            <Grid Margin="0,30,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Clicked="RequestDeletItem_close" 
+                        Grid.Column="0" 
+                        Text="ні">
+                    
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonMouseEnter"
+                                              PointerExited="OnButtonMouseLeave"/>
+                    </Button.GestureRecognizers>
+
+                </Button>
+
+                <Button x:Name="AddProductButton"
+                        Clicked="DeleatElement"
+                        Grid.Column="1" 
+                        Text="так">
+
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonMouseEnter"
+                                              PointerExited="OnButtonMouseLeave"/>
+                    </Button.GestureRecognizers>
+
+                </Button>
+            </Grid>
+
+        </StackLayout>
+    </Border>
+    
+</mopup:PopupPage>

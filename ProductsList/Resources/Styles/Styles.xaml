@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Shadow x:Key="ShadowTable" 
+            Brush="{StaticResource Oxfordlue}"
+            Radius="20"
+            Opacity="0.5" />
+    
+    <Shadow x:Key="ShadowPopup" 
+            Brush="{StaticResource Oxfordlue}"
+            Radius="5"
+            Opacity="0.5" />
+
+    <Style x:Key="BorderForFocusStyle" TargetType="Border">
+        <Setter Property="HeightRequest"            Value="50"/>
+        <Setter Property="WidthRequest"             Value="4"/>
+        <Setter Property="Background"               Value="{StaticResource SchoolBusYelolow}"/>
+        <Setter Property="Stroke"                   Value="{StaticResource SchoolBusYelolow}"/>
+        <Setter Property="StrokeThickness"          Value="1"/>
+        <Setter Property="Opacity"                  Value="0"/>
+    </Style>
+    
+    <Style x:Key="BorderTableStyle" TargetType="Border">
+        <Setter Property="Background"               Value="{StaticResource OldLace}"/>
+        <Setter Property="Stroke"                   Value="{StaticResource OldLace}"/>
+        <Setter Property="Shadow"                   Value="{StaticResource ShadowTable}"/>
+        <Setter Property="StrokeShape"              Value="RoundRectangle  10,10,10,10"/>
+        <Setter Property="Padding"                  Value="0,50,0,0"/>
+    </Style>
+
+    <Style x:Key="BorderPopupStyle" TargetType="Border">
+        <Setter Property="Background"               Value="{StaticResource OldLace}"/>
+        <Setter Property="Stroke"                   Value="{StaticResource OldLace}"/>
+        <Setter Property="Shadow"                   Value="{StaticResource  ShadowPopup}"/>
+        <Setter Property="StrokeShape"              Value="RoundRectangle  10,10,10,10"/>
+        <Setter Property="Padding"                  Value="40,10,40,10"/>
+    </Style>
+
+    <Style x:Key="AddProductBorderStyle" TargetType="Border">
+        <Setter Property="Background"               Value="{StaticResource Oxfordlue}"/>
+        <Setter Property="Stroke"                   Value="{StaticResource Oxfordlue}"/>
+        <Setter Property="StrokeShape"              Value="RoundRectangle  10,10,10,10"/>
+        <Setter Property="Padding"                  Value="5"/>
+    </Style>
+
+    <Style x:Key="BorderMenuStyle" TargetType="Border">
+        <Setter Property="Background"               Value="{StaticResource Oxfordlue}"/>
+        <Setter Property="Stroke"                   Value="{StaticResource Oxfordlue}"/>
+        <Setter Property="StrokeShape"              Value="RoundRectangle  0,15,0,15"/>
+        <Setter Property="Padding"                  Value="20"/>
+    </Style>
+
+    <Style x:Key="MenuSliderBorderStyle" TargetType="Border">
+        <Setter Property="HeightRequest"            Value="50"/>
+        <Setter Property="WidthRequest"             Value="260"/>
+        <Setter Property="Background"               Value="{StaticResource Transparent}"/>
+        <Setter Property="StrokeShape"              Value="RoundRectangle  15"/>
+    </Style>
+
+    <Style x:Key="BorderTabelHeaderStyle" TargetType="Border">
+        <Setter Property="Background"               Value="{StaticResource OldLace}"/>
+        <Setter Property="StrokeShape"              Value="RoundRectangle  10,10,0,0"/>
+    </Style>
+
+    <Style x:Key="MenuItemBorderStyle" TargetType="Border" BasedOn="{StaticResource MenuSliderBorderStyle}">
+        <Setter Property="IsVisible"                Value="false"/>
+        <Setter Property="Opacity"                  Value="0"/>
+    </Style>
+
+    <Style x:Key="LableStyle" TargetType="Label">
+        <Setter Property="TextColor"                Value="{StaticResource OldLace}"/>
+        <Setter Property="FontSize"                 Value="25"/>
+        <Setter Property="FontFamily"               Value="IstokWebRegular"/>
+        <Setter Property="VerticalOptions"          Value="Fill"/>
+        <Setter Property="VerticalTextAlignment"    Value="Center"/>
+        <Setter Property="HorizontalOptions"        Value="Fill"/>
+        <Setter Property="HorizontalTextAlignment"  Value="Center"/>
+    </Style>
+
+    <Style x:Key="LableTableHeaderItemStyle" TargetType="Label" BasedOn="{StaticResource LableStyle}">
+        <Setter Property="TextColor"                Value="{StaticResource Oxfordlue}"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="HeightRequest"            Value="10"/>
+        <Setter Property="WidthRequest"             Value="85"/>
+        <Setter Property="TextColor"                Value="{StaticResource Oxfordlue}" />
+        <Setter Property="BackgroundColor"          Value="{StaticResource OldLace}" />
+        <Setter Property="FontFamily"               Value="IstokWebRegular"/>
+        <Setter Property="FontSize"                 Value="16"/>
+        <Setter Property="CornerRadius"             Value="5"/>
+        <Setter Property="BorderColor"              Value="{StaticResource Oxfordlue}"/>
+        <Setter Property="Padding"                  Value="5,5"/>
+        <Setter Property="MinimumHeightRequest"     Value="44"/>
+        <Setter Property="MinimumWidthRequest"      Value="44"/>
+    </Style>
+
+    <Style TargetType="Frame">
+        <Setter Property="HeightRequest"            Value="42"/>
+        <Setter Property="WidthRequest"             Value="80"/>
+        <Setter Property="BackgroundColor"          Value="{StaticResource Transparent}"/>
+        <Setter Property="BorderColor"              Value="{StaticResource Oxfordlue}" />
+        <Setter Property="CornerRadius"             Value="5" />
+        <Setter Property="Padding"                  Value="0"/>
+    </Style>
+    
+    <Style x:Key="EntryStyle" TargetType="Entry">
+        <Setter Property="BackgroundColor"          Value="{StaticResource Transparent}"/>
+        <Setter Property="TextColor"                Value="{StaticResource Oxfordlue}"/>
+        <Setter Property="PlaceholderColor"         Value="{StaticResource Jet}"/>
+        <Setter Property="FontFamily"               Value="IstokWebRegular"/>
+        <Setter Property="FontSize"                 Value="20"/>
+        <Setter Property="MaxLength"                Value="6"/>
+    </Style>
+
+    <Style TargetType="Picker">
+        <Setter Property="TextColor"                Value="{StaticResource Oxfordlue}"/>
+        <Setter Property="Title"                    Value="Оберіть тип продукту"/>
+        <Setter Property="TitleColor"               Value="{StaticResource Oxfordlue}"/>
+        <Setter Property="SelectedIndex"            Value="1"/>
+        <Setter Property="FontFamily"               Value="IstokWebRegular"/>
+        <Setter Property="FontSize"                 Value="18"/>
+    </Style>
+
+    <Style x:Key="MenuStackLayloutStyle" TargetType="StackLayout">
+        <Setter Property="Background"               Value="{StaticResource Transparent}"/>
+        <Setter Property="IsVisible"                Value="false"/>
+        <Setter Property="Padding"                  Value="10,0,0,0"/>
+    </Style>
+
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="Padding"                  Value="0"/>
+        <Setter Property="BackgroundColor"          Value="#80000000"/>
+    </Style>
+
+</ResourceDictionary>

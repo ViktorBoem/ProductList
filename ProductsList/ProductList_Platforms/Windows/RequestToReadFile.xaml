@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+                  xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
+                  x:Class="ProductsList.ProductList_Platforms.Windows.RequestPopup">
+
+    <Border HeightRequest="180" WidthRequest="350" Style="{StaticResource BorderPopupStyle}">
+        <StackLayout>
+            <Label Text="бажаєте зчитати дані з текстовго файлу?" 
+                   Style="{StaticResource TibleItemStyle}">
+                
+            </Label>
+
+            <Grid Margin="0,30,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Clicked="RequestPopup_close" 
+                        Grid.Column="0" 
+                        Text="ні">
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonMouseEnter"
+                                                  PointerExited="OnButtonMouseLeave"/>
+                    </Button.GestureRecognizers>
+                    
+                </Button>
+
+                <Button x:Name="AddProductButton"
+                        Clicked="ReadFile"
+                        Grid.Column="1" 
+                        Text="так">
+                    
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonMouseEnter"
+                                                  PointerExited="OnButtonMouseLeave"/>
+                    </Button.GestureRecognizers>
+                    
+                </Button>
+            </Grid>
+
+        </StackLayout>
+    </Border>
+
+</mopups:PopupPage>
